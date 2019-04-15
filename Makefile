@@ -4,7 +4,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -O2
 LFLAGS = -Wall -Wextra
 
-serwer.o klient.o: err.h
+serwer.o klient.o: structs.h err.h
 
 netstore-server: serwer.o err.o
 	$(CC) $(LFLAGS) $^ -o $@
