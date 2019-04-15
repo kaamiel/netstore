@@ -1,19 +1,19 @@
 TARGET: netstore-server netstore-client
 
 CC = gcc
-CFLAGS = -Wall -Wextra -O2
-LFLAGS = -Wall -Wextra
+CFLAGS = -Wall -Wextra -O2 -pedantic
+LFLAGS = -Wall -Wextra -O2 -pedantic
 
-serwer.o klient.o: structs.h err.h
+netstore-server.o netstore-client.o: common.h err.h
 
-netstore-server: serwer.o err.o
+netstore-server: netstore-server.o err.o
 	$(CC) $(LFLAGS) $^ -o $@
 
-netstore-client: klient.o err.o
+netstore-client: netstore-client.o err.o
 	$(CC) $(LFLAGS) $^ -o $@
 
 
 .PHONY: clean TARGET
 clean:
-	rm -f *.o $(TARGET)
+	rm -f netstore-server netstore-client *.o
 

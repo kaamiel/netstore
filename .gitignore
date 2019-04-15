@@ -1,5 +1,6 @@
 .idea/
 cmake-build-debug/
+CMakeLists.txt
 *.o
 netstore-server
 netstore-client
