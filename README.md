@@ -1,6 +1,6 @@
 # netstore
 
-Zadanie polega na napisania serwera i klienta do pobierania fragmentów plików z innego komputera.
+Zadanie polega na napisaniu serwera i klienta do pobierania fragmentów plików z innego komputera.
 Zakładamy, że dostępne pliki są krótsze niż 4 GiB. Używać będziemy protokołu TCP i adresowania IPv4.
 
 ## Klient
@@ -23,7 +23,7 @@ Prośba o przysłanie listy plików nie zawiera nic więcej.
 
 Program klienta uruchamia się następująco:
 ```
-netstore-client <nazwa-lub-adres-IP4-serwera> [<numer-portu-serwera>]
+./netstore-client <nazwa-lub-adres-IP4-serwera> [<numer-portu-serwera>]
 ```
 
 Domyślny numer portu to `6543`.
@@ -50,7 +50,7 @@ W przypadku odmowy przyczynę odmowy należy wypisać użytkownikowi, po czym za
 
 Program serwera uruchamia się następująco:
 ```
-netstore-server <nazwa-katalogu-z-plikami> [<numer-portu-serwera]
+./netstore-server <nazwa-katalogu-z-plikami> [<numer-portu-serwera]
 ```
 
 Domyślny numer portu to `6543`.
@@ -86,9 +86,9 @@ Dla każdego żądania możliwe są dwie reakcje.
   
   Serwer zaczyna wysyłać podany fragment. Na początku wysyła dwubajtowe pole z liczbą `3`, następnie (być może zmodyfikowaną, patrz wyżej) długość fragmentu na 4 bajtach. Potem idą już bajty fragmentu.
 
-Ponieważ pliki (i fragmenty) bywają spore i nie ma sensu trzymanie bufora, który pomieściłby cały wysyłany plik lub jego fragment, to wstawianie danych do wysłania powinno odbywać się porcjami po około 512 KiB.
+  Ponieważ pliki (i fragmenty) bywają spore i nie ma sensu trzymanie bufora, który pomieściłby cały wysyłany plik lub jego fragment, to wstawianie danych do wysłania powinno odbywać się porcjami po około 512 KiB.
 
-Po udanym wysłaniu wszystkich bajtów serwer czeka na zamknięcie połączenia, po czym obsługuje następnego klienta.
+  Po udanym wysłaniu wszystkich bajtów serwer czeka na zamknięcie połączenia, po czym obsługuje następnego klienta.
 
 ## Dodatkowe wymagania
 
