@@ -222,6 +222,12 @@ uint32_t get_file_names_list(char *buffer, char delim, struct no_interrupt *flag
     if (count > 0) {
         buffer[--count] = 0;
     }
-    closedir(dirp);
+    if (closedir(dirp) < 0) {
+        if (flags->do_not_interrupt) {
+            flags->failed = 1;
+        } else {
+            syserr("closedir; %s:%d\n", __FILE__, __LINE__);
+        }
+    }
     return count;
 }

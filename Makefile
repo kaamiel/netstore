@@ -1,8 +1,8 @@
 TARGET: netstore-server netstore-client
 
 CC = gcc
-CFLAGS = -Wall -Wextra -O2 -pedantic
-LFLAGS = -Wall -Wextra -O2 -pedantic
+CFLAGS = -Wall -Wextra -O2
+LFLAGS = -Wall -Wextra
 
 netstore-server.o netstore-client.o: common.h err.h
 
